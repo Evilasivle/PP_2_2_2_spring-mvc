@@ -11,16 +11,11 @@ import java.util.List;
 
 @Controller
 public class CarController {
-
     private CarService carService;
 
-    public CarController() {
-    }
-
     @Autowired
-    public CarController(CarService carService) {
+    public void setCarService(CarService carService) {
         this.carService = carService;
-        this.carService.initCars();
     }
 
     @GetMapping(value = "/cars")
@@ -29,4 +24,6 @@ public class CarController {
         model.addAttribute("cars", cars);
         return "cars";
     }
+
+
 }
